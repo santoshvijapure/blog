@@ -7,7 +7,7 @@ var bodyParser = require("body-parser"),
 
 //app config
 
-mongoose.connect("mongodb+srv://root:root@cluster0-iuz5o.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://root:root@cluster0-iuz5o.mongodb.net/blog");
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
@@ -27,11 +27,8 @@ var Blog =mongoose.model("Blog",blogScema);
 
 
 // routes
-// Blog.create({
-//     titel : "test blog",
-//     image:"khasfkhvasfvhasv",
-//     body:"lorem ipldgbaskhvd"
-// })
+
+
 app.get('/', (req, res) => {
 res.redirect("/blogs")
 });
@@ -48,7 +45,42 @@ app.get('/blogs', (req, res) => {
     })
 });
 
+// new route
+app.get('/blogs/new', (req, res) => {
+   res.render("new") 
+});
+
+
+//create route
+app.post('/blogs', (req, res) => {
+
+    //create a blog
+    Blog.create(req.body.blog, (err , newBlog)=>{
+        if(err){
+            console.log(err);
+        }else{
+            console.log(newBlog);
+        }
+        res.redirect("/blogs")
+    })
+});
+
+//show route 
+app.get('/blogs/:id', (req, res) => {
+    res.send("show page ");
+});
+
+
+
+
+
+
+
+
+
+
+
+// listen
 app.listen(8080, () => {
     console.log('App listening on port 8080!');
 });
-
