@@ -67,7 +67,13 @@ app.post('/blogs', (req, res) => {
 
 //show route 
 app.get('/blogs/:id', (req, res) => {
-    res.send("show page ");
+    Blog.findById(req.params.id, (err,newBlog)=>{
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("show",{newBlog});
+        }
+    })
 });
 
 
