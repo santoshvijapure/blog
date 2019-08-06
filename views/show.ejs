@@ -1,12 +1,26 @@
 <% include partials/header %>
 
-<h1> this is show page for </h1>
+<div class="container-fluid">
+    <br><br><br><br>
+    <div class="jumbotron">
+        
+        
+        <h1 class="text-center"><%= newBlog.title.toUpperCase()%></h1>
+        <hr>
+        <center>
+            <img class="img thumbnail" src="<%= newBlog.img %>" alt="blog img">
+        </center>
+        <hr>
+        
+        <p class="text-justify" style="text-align: justify">
+            <%-  newBlog.body %>
+        </p>
+        <div class="text-right">
+           <b> <%-  newBlog.created.toDateString() %></b>
+        </div>
+    </div>
+ 
+</div>
 
-<%= newBlog.title%>
-<img src="<%= newBlog.img %>" alt="blog img">
-
-
-<%-  newBlog.body %>
-<%-  newBlog.created.toDateString() %>
 
 <% include partials/footer %> 
