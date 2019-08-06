@@ -28,6 +28,10 @@ var Blog =mongoose.model("Blog",blogScema);
 
 // routes
 
+// Blog.findOne({},(err,blog)=>{
+//     console.log(blog);
+    
+// })
 
 app.get('/', (req, res) => {
 res.redirect("/blogs")
@@ -35,11 +39,9 @@ res.redirect("/blogs")
 
 app.get('/blogs', (req, res) => {
     Blog.find({} , (err , blogs) =>{
-
         if (err) {
             console.log(err);
         }else{
-       
         res.render("index", {blogs});
         }
     })
@@ -87,6 +89,6 @@ app.get('/blogs/:id', (req, res) => {
 
 
 // listen
-app.listen(8080, () => {
+app.listen(8080 || process.env.PORT, () => {
     console.log('App listening on port 8080!');
 });

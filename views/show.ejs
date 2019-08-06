@@ -3,5 +3,10 @@
 <h1> this is show page for </h1>
 
 <%= newBlog.title%>
+<img src="<%= newBlog.img %>" alt="blog img">
+
+
+<%-  newBlog.body %>
+<%-  newBlog.created.toDateString() %>
 
 <% include partials/footer %> 

@@ -1,22 +1,19 @@
 <% include partials/header %> 
-<div class="ui main text container segments">
-    <div class="ui container">
-        <form method="post" action="/blogs" class="ui form ">
-            <div class="field">
-                <input type="text" name="blog[title]" placeholder="title" id="" required>
-            </div>
-            <div class="field">
-                
-                <input type="text" name="blog[img]" placeholder="image" id="" required>
-            </div>
-            <div class="field">
+<br>
+<br>
+<br>
 
-                <textarea name="blog[body]" placeholder="body" required id=""></textarea>
-            </div>
-            <div class="field">
-                
-                <input type="submit" name="" id="" class="ui voilet basic big button ">
-            </div>
+<div class="container ">
+
+        <form method="post" class="form-control" action="/blogs">
+
+                <input type="text" name="blog[title]" class="form-control" placeholder="title" id="" required>
+                 <br>
+                <input type="text" class="form-control" name="blog[img]" placeholder="image" id="" required>
+                <br>
+                <textarea name="blog[body]" class="form-control" placeholder="body" required id=""></textarea>
+                <br>
+                <input type="submit" name="" id=""class="form-control" >
+            
         </form>
-    </div>
 </div>
