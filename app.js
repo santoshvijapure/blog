@@ -89,6 +89,6 @@ app.get('/blogs/:id', (req, res) => {
 
 
 // listen
-app.listen(8080 || process.env.PORT, () => {
+app.listen(PORT, () => {
     console.log('App listening on port 8080!');
 });
