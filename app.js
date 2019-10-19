@@ -13,18 +13,7 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
 // mongoose model
-
-
-var blogScema = mongoose.Schema({
-    title   :    String,
-    img     :    String,
-    body    :    String,
-    created :   {
-                    type : Date,
-                    default : Date.now
-                } 
-})
-var Blog =mongoose.model("Blog",blogScema);
+var Blog = require("./models/Blogs")
 
 
 // routes
